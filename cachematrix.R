@@ -1,3 +1,5 @@
+## makeCacheMatrix creates a list to store a matrix and its inverse if already computed
+
 makeCacheMatrix <- function(x = matrix()) {
   m <- NULL
   set <- function(y) {
@@ -12,6 +14,8 @@ makeCacheMatrix <- function(x = matrix()) {
        getinv = getinv)
 }
 #####################################
+#### cacheSolve takes a "matrix plus" output from makeCacheMatrix and either computes its inverse or pulls it out of
+### storage in the list created above
 cacheSolve <- function(x, ...) {
   m <- x$getinv()
   if(!is.null(m)) {
